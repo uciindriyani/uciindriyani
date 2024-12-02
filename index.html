@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Royal Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="dashboard">
+    <aside class="sidebar">
+      <h2>Royal Dashboard</h2>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Mahasiswa</a></li>
+          <li><a href="#">Kelas</a></li>
+          <li><a href="#">Aktivitas</a></li>
+          <li><a href="#">Statistik</a></li>
+          <li><a href="#">Dokumen</a></li>
+          <li><a href="#">Pengaturan</a></li>
+          <li><a href="#" class="logout">Keluar</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <main class="main-content">
+      <header>
+        <img src="uci.jfif" alt="class="img-circle">
+        <h1>Selamat Datang, Uci Indriyani</h1>
+        <p>Kelas SI-3P</p>
+        <p>Kamu memiliki Statistik, Progres Kelas, Aktivitas Selanjutnya, dan Lampiran Dokumen yang ada pada aplikasi ini.</p>
+        <input type="text" placeholder="Cari Kelas, Dokumen, Aktivitas dll..." />
+      </header>
+ 
+      <section class="statistics">
+        <div class="chart">
+          <h3>Statistik Mahasiswa</h3>
+          <canvas id="studentChart"></canvas>
+        </div>
+        <div class="progress">
+          <h3>Progres Kelas</h3>
+          <ul>
+            <li>Matakuliah A - 78 Pendaftar</li>
+            <li>Matakuliah B - 78 Pendaftar</li>
+            <li>Matakuliah C - 78 Pendaftar</li>
+            <li>Matakuliah D - 78 Pendaftar</li>
+          </ul>
+        </div>
+        <div class="next-activities">
+          <h3>Aktivitas Selanjutnya</h3>
+          <ul>
+            <li>Perkuliahan Daring 1 - Senin, 15 Januari 2025</li>
+            <li>Perkuliahan Daring 2 - Senin, 15 Februari 2025</li>
+            <li>Perkuliahan Daring 3 - Senin, 15 Maret 2025</li>
+            <li>Perkuliahan Daring 4 - Senin, 15 April 2025</li>
+          </ul>
+        </div>
+      </section>
+      <section class="documents">
+        <h3>Lampiran Dokumen</h3>
+        <ul>
+          <li>Matakuliah A - Tugas Bersama Perkuliahan Daring <a href="#">Lihat Dokumen</a></li>
+          <li>Matakuliah B - Tugas Bersama Perkuliahan Daring <a href="#">Lihat Dokumen</a></li>
+          <li>Matakuliah C - Tugas Bersama Perkuliahan Daring <a href="#">Lihat Dokumen</a></li>
+        </ul>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // Data for the chart
+    const ctx = document.getElementById('studentChart').getContext('2d');
+    const studentChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Class A', 'Class B', 'Class C', 'Class D'],
+        datasets: [{
+          label: 'Avg Point',
+          data: [20, 40, 60, 80],
+          backgroundColor: ['#4CAF50', '#2196F3', '#FF9800', '#F44336'],
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          },
+          title: {
+            display: true,
+            text: 'Statistik Mahasiswa'
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
